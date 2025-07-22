@@ -1,0 +1,109 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require "bundler/setup"
+require "stonk"
+require "optparse"
+
+use_cache = true
+
+def setup_service(use_cache:)
+  cache_adapter = Stonk::Adapter::FileCacheAdapter.new("/tmp/stock_cache.json")
+  alpha_adapter = Stonk::Adapter::AlphaVantageAdapter.new(ENV["ALPHA_VANTAGE_API_KEY"])
+  alpha_adapter_with_retry = Stonk::Adapter::AlphaVantageAdapter.new(
+    ENV["ALPHA_VANTAGE_API_KEY"],
+    retry_on_rate_limit: true,
+  )
+
+  lookup_adapters = [alpha_adapter, alpha_adapter_with_retry]
+
+  lookup_adapters.unshift(cache_adapter) if use_cache
+
+  Stonk::Service.new(
+    lookup_adapters:,
+    cache_adapter: use_cache ? cache_adapter : nil,
+  )
+end
+
+def lookup_stock(service, symbol)
+  puts "Looking up #{symbol.upcase}..."
+
+  begin
+    price = service.get_stock_price(symbol.upcase)
+
+    if price
+      puts "#{symbol.upcase}: $#{price.to_f}"
+    else
+      puts "Could not find price for #{symbol.upcase}"
+      exit(1)
+    end
+  rescue Stonk::Adapter::StockNotFound
+    puts "Stock not found: #{symbol.upcase}"
+    exit(1)
+  rescue Stonk::Adapter::RateLimitExceeded
+    puts "Rate limit exceeded. Please try again later."
+    exit(1)
+  rescue Stonk::Adapter::ServerError => e
+    puts "Server error occurred: #{e.message}"
+    exit(1)
+  rescue => e
+    puts "Error: #{e.message}"
+    exit(1)
+  end
+end
+
+def show_help
+  puts <<~HELP
+    Usage: stonk [OPTIONS] SYMBOL
+
+    Look up stock prices using multiple data sources.
+
+    Arguments:
+      SYMBOL                    Stock symbol to look up (e.g., AAPL, MSFT)
+
+    Options:
+      -h, --help               Show this help message
+
+    Environment Variables:
+      ALPHA_VANTAGE_API_KEY    API key for Alpha Vantage (optional)
+
+    Examples:
+      stonk AAPL               Look up Apple stock price
+      stonk MSFT               Look up Microsoft stock price
+
+    The tool will try multiple data sources in order:
+    1. Local cache
+    2. Alpha Vantage (if API key provided)
+    4. Alpha Vantage with retry (if API key provided)
+
+    Successful lookups are cached for future use.
+  HELP
+end
+
+OptionParser.new do |opts|
+  opts.banner = "Usage: stonk [OPTIONS] SYMBOL"
+
+  opts.on("-h", "--help", "Show this help message") do
+    show_help
+    exit
+  end
+
+  opts.on("--verbose", "Show verbose output") do
+    Stonk.logger.level = Logger::DEBUG
+  end
+
+  opts.on("--no-cache", "Do not use the cache") do
+    use_cache = false
+  end
+end.parse!
+
+if ARGV.empty?
+  puts "Error: Stock symbol is required"
+  puts "Use 'stonk --help' for usage information"
+  exit 1
+end
+
+symbol = ARGV.first
+
+service = setup_service(use_cache:)
+lookup_stock(service, symbol)

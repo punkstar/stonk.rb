@@ -2,7 +2,12 @@
 
 require "bundler/gem_tasks"
 require "rubocop/rake_task"
+require "minitest/test_task"
 
 RuboCop::RakeTask.new
 
-task default: :rubocop
+Minitest::TestTask.create do |t|
+  t.warning = false
+end
+
+task default: :test

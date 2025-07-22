@@ -1,0 +1,410 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://fc.yahoo.com/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML,
+        like Gecko) Version/17.1 Safari/605.1.15
+      Accept:
+      - application/json, text/plain, */*
+      Accept-Language:
+      - en-US,en;q=0.9
+      Accept-Encoding:
+      - gzip, deflate, br
+      Dnt:
+      - '1'
+      Connection:
+      - keep-alive
+      Sec-Fetch-Dest:
+      - empty
+      Sec-Fetch-Mode:
+      - cors
+      Sec-Fetch-Site:
+      - same-site
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+  response:
+    status:
+      code: 404
+      message: Not Found on Accelerator
+    headers:
+      Date:
+      - Sun, 06 Jul 2025 09:54:29 GMT
+      Connection:
+      - keep-alive
+      Server:
+      - ATS
+      Cache-Control:
+      - no-store
+      Content-Type:
+      - text/html
+      Content-Language:
+      - en
+      Set-Cookie:
+      - A3=d=AQABBNVHamgCEDFfSRB0xK-ykEqYvgGIbc4FEgEBAQGZa2h0aPYB7b8A_eMCAA&S=AQAAAppikGS4HvGQZk4JSkp5_g4;
+        Expires=Mon, 6 Jul 2026 15:54:29 GMT; Max-Age=31557600; Domain=.yahoo.com;
+        Path=/; SameSite=None; Secure; HttpOnly
+      Content-Length:
+      - '4744'
+    body:
+      encoding: UTF-8
+      string: |
+        <!DOCTYPE html>
+        <html lang="en-us">
+          <head>
+            <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+            <meta charset="utf-8">
+            <title>Yahoo</title>
+            <meta name="viewport" content="width=device-width,initial-scale=1,minimal-ui">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+            <style>
+              html {
+                  height: 100%;
+              }
+              body {
+                  background: #fafafc url(https://s.yimg.com/nn/img/sad-panda-201402200631.png) 50% 50%;
+                  background-size: cover;
+                  height: 100%;
+                  text-align: center;
+                  font: 300 18px "helvetica neue", helvetica, verdana, tahoma, arial, sans-serif;
+                  margin: 0;
+              }
+              table {
+                  height: 100%;
+                  width: 100%;
+                  table-layout: fixed;
+                  border-collapse: collapse;
+                  border-spacing: 0;
+                  border: none;
+              }
+              h1 {
+                  font-size: 42px;
+                  font-weight: 400;
+                  color: #400090;
+              }
+              p {
+                  color: #1A1A1A;
+              }
+              #message-1 {
+                  font-weight: bold;
+                  margin: 0;
+              }
+              #message-2 {
+                  display: inline-block;
+                  *display: inline;
+                  zoom: 1;
+                  max-width: 17em;
+                  _width: 17em;
+              }
+              </style>
+              <script>
+              !function(){if(window==window.top){var o=window.location.host;o.endsWith(".yahoo.com")&&window.location.replace("https://www.yahoo.com/"),o.endsWith(".aol.com")&&window.location.replace("https://www.aol.com/"),o.endsWith(".huffpost.com")&&window.location.replace("https://www.huffpost.com/"),o.endsWith(".engadget.com")&&window.location.replace("https://www.engadget.com/")}}();
+              </script>
+          </head>
+          <body>
+          <!-- status code : 404 -->
+          <!-- Not Found on Accelerator -->
+          <!-- host machine: e17.ycpi.lob.yahoo.com -->
+          <!-- timestamp: 1751795669.265 -->
+          <!-- url: https://fc.yahoo.com/-->
+          <script type="text/javascript">
+            function buildUrl(url, parameters){
+              var qs = [];
+              for(var key in parameters) {
+                var value = parameters[key];
+                qs.push(encodeURIComponent(key) + "=" + encodeURIComponent(value));
+              }
+              url = url + "?" + qs.join('&');
+              return url;
+            }
+
+            function generateBRBMarkup(site) {
+              params.source = 'brb';
+              generateBeaconMarkup(params);
+              var englishHeader = 'Will be right back...';
+              var englishMessage1 = 'Thank you for your patience.';
+              var englishMessage2 = 'Our engineers are working quickly to resolve the issue.';
+              var defaultLogoStyle = '';
+              var siteDataMap = {
+                'default': {
+                  logo: 'https://s.yimg.com/rz/p/yahoo_frontpage_en-US_s_f_p_205x58_frontpage.png',
+                  logoAlt: 'Yahoo Logo',
+                  logoStyle: defaultLogoStyle,
+                  header: englishHeader,
+                  message1: englishMessage1,
+                  message2: englishMessage2
+                }
+              };
+
+              var siteDetails = siteDataMap['default'];
+
+              document.write('<table><tbody><tr><td>');
+              document.write('<div id="content">');
+              document.write('<img src="' + siteDetails['logo'] + '" alt="' + siteDetails['logoAlt'] + '" style="' + siteDetails['logoStyle'] + '">');
+              document.write('<h1 style="margin-top:20px;">' + siteDetails['header'] + '</h1>');
+              document.write('<p id="message-1">' + siteDetails['message1'] + '</p>');
+              document.write('<p id="message-2">' + siteDetails['message2'] + '</p>');
+              document.write('</div>');
+              document.write('</td></tr></tbody></table>');
+            }
+
+            function generateBeaconMarkup(params) {
+                document.write('<img src="' + buildUrl('//geo.yahoo.com/b', params) + '" style="display:none;" width="0px" height="0px"/>');
+                var beacon = new Image();
+                beacon.src = buildUrl('//bcn.fp.yahoo.com/p', params);
+            }
+
+            var hostname = window.location.hostname;
+            var device = 'desktop';
+            var ynet = ('-' === '1');
+            var time = new Date().getTime();
+            var params = {
+                s: '1197757129',
+                t: time,
+                err_url: document.URL,
+                err: '404',
+                test: '-',
+                ats_host: 'e17.ycpi.lob.yahoo.com',
+                rid: '-',
+                message: 'Not Found on Accelerator'
+            };
+
+            if(ynet) {
+                document.write('<div style="height: 5px; background-color: red;"></div>');
+            }
+            generateBRBMarkup(hostname, params);
+
+          </script>
+          <noscript>
+          <table>
+            <tbody>
+              <tr>
+                <td>
+                  <div id="englishContent">
+                    <h1 style="margin-top:20px;">Will be right back...</h1>
+                    <p id="message-1">Thank you for your patience.</p>
+                    <p id="message-2">Our engineers are working quickly to resolve the issue.</p>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          </noscript>
+          </body>
+        </html>
+  recorded_at: Sun, 06 Jul 2025 09:54:29 GMT
+- request:
+    method: get
+    uri: https://query2.finance.yahoo.com/v1/test/getcrumb
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0
+        Safari/537.36
+      Accept:
+      - application/json, text/plain, */*
+      Accept-Language:
+      - en-US,en;q=0.9
+      Accept-Encoding:
+      - gzip, deflate, br
+      Dnt:
+      - '1'
+      Connection:
+      - keep-alive
+      Sec-Fetch-Dest:
+      - empty
+      Sec-Fetch-Mode:
+      - cors
+      Sec-Fetch-Site:
+      - same-site
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Cookie:
+      - A3=d=AQABBNVHamgCEDFfSRB0xK-ykEqYvgGIbc4FEgEBAQGZa2h0aPYB7b8A_eMCAA&S=AQAAAppikGS4HvGQZk4JSkp5_g4;
+        Expires=Mon, 6 Jul 2026 15:54:29 GMT; Max-Age=31557600; Domain=.yahoo.com;
+        Path=/; SameSite=None; Secure; HttpOnly
+  response:
+    status:
+      code: 429
+      message: Too Many Requests
+    headers:
+      Date:
+      - Sun, 06 Jul 2025 09:54:29 GMT
+      Strict-Transport-Security:
+      - max-age=31536000
+      Server:
+      - ATS
+      Cache-Control:
+      - no-store
+      Content-Type:
+      - text/html
+      Content-Language:
+      - en
+      Referrer-Policy:
+      - no-referrer-when-downgrade
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Content-Length:
+      - '19'
+      Age:
+      - '0'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - Domain=DELETE; Expires=Sun, 6 Jul 2025 09:44:29 GMT; Max-Age=0; Domain=finance.yahoo.com;
+        Path=; Secure; HttpOnly
+      - Domain=DELETE; Expires=Sun, 6 Jul 2025 09:44:29 GMT; Max-Age=0; Domain=query2.finance.yahoo.com;
+        Path=; Secure; HttpOnly
+      - Domain=DELETE; Expires=Sun, 6 Jul 2025 09:44:29 GMT; Max-Age=0; Domain=yahoo.com;
+        Path=; Secure; HttpOnly
+      - Expires=DELETE; Expires=Sun, 6 Jul 2025 09:44:29 GMT; Max-Age=0; Domain=finance.yahoo.com;
+        Path=; Secure; HttpOnly
+      - Expires=DELETE; Expires=Sun, 6 Jul 2025 09:44:29 GMT; Max-Age=0; Domain=query2.finance.yahoo.com;
+        Path=; Secure; HttpOnly
+      - Expires=DELETE; Expires=Sun, 6 Jul 2025 09:44:29 GMT; Max-Age=0; Domain=yahoo.com;
+        Path=; Secure; HttpOnly
+      - Max-Age=DELETE; Expires=Sun, 6 Jul 2025 09:44:29 GMT; Max-Age=0; Domain=finance.yahoo.com;
+        Path=; Secure; HttpOnly
+      - Max-Age=DELETE; Expires=Sun, 6 Jul 2025 09:44:29 GMT; Max-Age=0; Domain=query2.finance.yahoo.com;
+        Path=; Secure; HttpOnly
+      - Max-Age=DELETE; Expires=Sun, 6 Jul 2025 09:44:29 GMT; Max-Age=0; Domain=yahoo.com;
+        Path=; Secure; HttpOnly
+      - Path=DELETE; Expires=Sun, 6 Jul 2025 09:44:29 GMT; Max-Age=0; Domain=finance.yahoo.com;
+        Path=; Secure; HttpOnly
+      - Path=DELETE; Expires=Sun, 6 Jul 2025 09:44:29 GMT; Max-Age=0; Domain=query2.finance.yahoo.com;
+        Path=; Secure; HttpOnly
+      - Path=DELETE; Expires=Sun, 6 Jul 2025 09:44:29 GMT; Max-Age=0; Domain=yahoo.com;
+        Path=; Secure; HttpOnly
+      - SameSite=DELETE; Expires=Sun, 6 Jul 2025 09:44:29 GMT; Max-Age=0; Domain=finance.yahoo.com;
+        Path=; Secure; HttpOnly
+      - SameSite=DELETE; Expires=Sun, 6 Jul 2025 09:44:29 GMT; Max-Age=0; Domain=query2.finance.yahoo.com;
+        Path=; Secure; HttpOnly
+      - SameSite=DELETE; Expires=Sun, 6 Jul 2025 09:44:29 GMT; Max-Age=0; Domain=yahoo.com;
+        Path=; Secure; HttpOnly
+    body:
+      encoding: UTF-8
+      string: "Too Many Requests\r\n"
+  recorded_at: Sun, 06 Jul 2025 09:54:29 GMT
+- request:
+    method: get
+    uri: https://query2.finance.yahoo.com/v8/finance/chart/AAPL?events=div,splits&includePrePost=false&interval=1d&range=1d
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like
+        Gecko) Chrome/120.0.0.0 Safari/537.36
+      Accept:
+      - application/json, text/plain, */*
+      Accept-Language:
+      - en-US,en;q=0.9
+      Accept-Encoding:
+      - gzip, deflate, br
+      Dnt:
+      - '1'
+      Connection:
+      - keep-alive
+      Sec-Fetch-Dest:
+      - empty
+      Sec-Fetch-Mode:
+      - cors
+      Sec-Fetch-Site:
+      - same-site
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Cookie:
+      - A3=d=AQABBNVHamgCEDFfSRB0xK-ykEqYvgGIbc4FEgEBAQGZa2h0aPYB7b8A_eMCAA&S=AQAAAppikGS4HvGQZk4JSkp5_g4;
+        Expires=Mon, 6 Jul 2026 15:54:29 GMT; Max-Age=31557600; Domain=.yahoo.com;
+        Path=/; SameSite=None; Secure; HttpOnly
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Y-Rid:
+      - 7r6go15k6khul
+      Vary:
+      - Origin,Accept-Encoding
+      Cache-Control:
+      - public, max-age=10, stale-while-revalidate=20
+      Content-Length:
+      - '1191'
+      X-Envoy-Upstream-Service-Time:
+      - '44'
+      Date:
+      - Sun, 06 Jul 2025 09:54:29 GMT
+      Server:
+      - ATS
+      X-Envoy-Decorator-Operation:
+      - finance-chart-api--mtls-production-ir2.finance-k8s:4080/*
+      Age:
+      - '0'
+      Strict-Transport-Security:
+      - max-age=31536000
+      Referrer-Policy:
+      - no-referrer-when-downgrade
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - Domain=DELETE; Expires=Sun, 6 Jul 2025 09:44:29 GMT; Max-Age=0; Domain=finance.yahoo.com;
+        Path=; Secure; HttpOnly
+      - Domain=DELETE; Expires=Sun, 6 Jul 2025 09:44:29 GMT; Max-Age=0; Domain=query2.finance.yahoo.com;
+        Path=; Secure; HttpOnly
+      - Domain=DELETE; Expires=Sun, 6 Jul 2025 09:44:29 GMT; Max-Age=0; Domain=yahoo.com;
+        Path=; Secure; HttpOnly
+      - Expires=DELETE; Expires=Sun, 6 Jul 2025 09:44:29 GMT; Max-Age=0; Domain=finance.yahoo.com;
+        Path=; Secure; HttpOnly
+      - Expires=DELETE; Expires=Sun, 6 Jul 2025 09:44:29 GMT; Max-Age=0; Domain=query2.finance.yahoo.com;
+        Path=; Secure; HttpOnly
+      - Expires=DELETE; Expires=Sun, 6 Jul 2025 09:44:29 GMT; Max-Age=0; Domain=yahoo.com;
+        Path=; Secure; HttpOnly
+      - Max-Age=DELETE; Expires=Sun, 6 Jul 2025 09:44:29 GMT; Max-Age=0; Domain=finance.yahoo.com;
+        Path=; Secure; HttpOnly
+      - Max-Age=DELETE; Expires=Sun, 6 Jul 2025 09:44:29 GMT; Max-Age=0; Domain=query2.finance.yahoo.com;
+        Path=; Secure; HttpOnly
+      - Max-Age=DELETE; Expires=Sun, 6 Jul 2025 09:44:29 GMT; Max-Age=0; Domain=yahoo.com;
+        Path=; Secure; HttpOnly
+      - Path=DELETE; Expires=Sun, 6 Jul 2025 09:44:29 GMT; Max-Age=0; Domain=finance.yahoo.com;
+        Path=; Secure; HttpOnly
+      - Path=DELETE; Expires=Sun, 6 Jul 2025 09:44:29 GMT; Max-Age=0; Domain=query2.finance.yahoo.com;
+        Path=; Secure; HttpOnly
+      - Path=DELETE; Expires=Sun, 6 Jul 2025 09:44:29 GMT; Max-Age=0; Domain=yahoo.com;
+        Path=; Secure; HttpOnly
+      - SameSite=DELETE; Expires=Sun, 6 Jul 2025 09:44:29 GMT; Max-Age=0; Domain=finance.yahoo.com;
+        Path=; Secure; HttpOnly
+      - SameSite=DELETE; Expires=Sun, 6 Jul 2025 09:44:29 GMT; Max-Age=0; Domain=query2.finance.yahoo.com;
+        Path=; Secure; HttpOnly
+      - SameSite=DELETE; Expires=Sun, 6 Jul 2025 09:44:29 GMT; Max-Age=0; Domain=yahoo.com;
+        Path=; Secure; HttpOnly
+    body:
+      encoding: UTF-8
+      string: '{"chart":{"result":[{"meta":{"currency":"USD","symbol":"AAPL","exchangeName":"NMS","fullExchangeName":"NasdaqGS","instrumentType":"EQUITY","firstTradeDate":345479400,"regularMarketTime":1751562001,"hasPrePostMarketData":true,"gmtoffset":-14400,"timezone":"EDT","exchangeTimezoneName":"America/New_York","regularMarketPrice":213.55,"fiftyTwoWeekHigh":260.1,"fiftyTwoWeekLow":169.21,"regularMarketDayHigh":214.65,"regularMarketDayLow":211.81,"regularMarketVolume":34697317,"longName":"Apple
+        Inc.","shortName":"Apple Inc.","chartPreviousClose":212.44,"priceHint":2,"currentTradingPeriod":{"pre":{"timezone":"EDT","end":1751549400,"start":1751529600,"gmtoffset":-14400},"regular":{"timezone":"EDT","end":1751562000,"start":1751549400,"gmtoffset":-14400},"post":{"timezone":"EDT","end":1751587200,"start":1751562000,"gmtoffset":-14400}},"dataGranularity":"1d","range":"1d","validRanges":["1d","5d","1mo","3mo","6mo","1y","2y","5y","10y","ytd","max"]},"timestamp":[1751549400],"indicators":{"quote":[{"close":[213.5500030517578],"high":[214.64999389648438],"open":[212.14999389648438],"low":[211.80999755859375],"volume":[34955800]}],"adjclose":[{"adjclose":[213.5500030517578]}]}}],"error":null}}'
+  recorded_at: Sun, 06 Jul 2025 09:54:29 GMT
+recorded_with: VCR 6.3.1
