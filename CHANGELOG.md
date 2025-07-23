@@ -1,4 +1,4 @@
-## [Unreleased]
+## [1.1.0] - 2025-07-23
 
 ### Data Sources
 - **CoinGecko adapter** - Cryptocurrency price data via CoinGecko API

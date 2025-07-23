@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.homepage = "https://github.com/punkstar/stonk.rb"
   spec.email = ["nick@nickjones.tech"]
 
-  spec.summary = "A Ruby gem that fetches real-time stock prices from multiple sources."
+  spec.summary = "A Ruby gem that fetches real-time stock and cryptocurrency prices from multiple sources."
   # spec.homepage = "https://github.com/punkstar/stonk.rb"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 3.2.0"

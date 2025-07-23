@@ -1,9 +1,10 @@
 # Stonk
 
-A Ruby gem for fetching real-time stock prices from multiple data sources with a unified interface. Stonk provides adapters for popular financial APIs and includes caching capabilities for improved performance.
+A Ruby gem for fetching real-time stock and cryptocurrency prices from multiple data sources with a unified interface. Stonk provides adapters for popular financial APIs and includes caching capabilities for improved performance.
 
 ## Features
 
+- **Multi-Asset Support**: Fetch both stock and cryptocurrency prices
 - **Caching**: Built-in file-based caching to reduce API calls
 - **Fallback Strategy**: Automatically tries multiple adapters if one fails
 - **Rate Limiting**: Built-in rate limit handling with retry logic
@@ -40,7 +41,8 @@ require 'stonk'
 cache_adapter = Stonk::Adapter::FileCacheAdapter.new('/tmp/stock_cache.json')
 service = Stonk::Service.new(
   lookup_adapters: [
-    Stonk::Adapter::AlphaVantageAdapter.new(ENV['ALPHA_VANTAGE_API_KEY'])
+    Stonk::Adapter::AlphaVantageAdapter.new(ENV['ALPHA_VANTAGE_API_KEY']),
+    Stonk::Adapter::CoinGeckoAdapter.new(ENV['COIN_GECKO_API_KEY']),
   ],
   cache_adapter:
 )
@@ -48,13 +50,17 @@ service = Stonk::Service.new(
 # Get stock price (automatically cached if cache_adapter is provided)
 price = service.get_stock_price('AAPL')
 puts "Apple stock price: $#{price}" if price
+
+# Get cryptocurrency price
+crypto_price = service.get_stock_price('BTC.CRYPTO')
+puts "Bitcoin price: $#{crypto_price}" if crypto_price
 ```
 
 ### Using Individual Adapters
 
 #### Alpha Vantage Adapter
 
-The Alpha Vantage adapter requires an API key from [Alpha Vantage](https://www.alphavantage.co/):
+The Alpha Vantage adapter requires an API key from [Alpha Vantage](https://www.alphavantage.co/) and provides stock data:
 
 ```ruby
 require 'stonk'
@@ -104,6 +110,30 @@ end
 cache_adapter.clear_cache
 ```
 
+#### CoinGecko Adapter
+
+The CoinGecko adapter provides cryptocurrency price data and supports the `.CRYPTO` suffix format:
+
+```ruby
+require 'stonk'
+
+# Create CoinGecko adapter
+coin_gecko_adapter = Stonk::Adapter::CoinGeckoAdapter.new
+
+# Get cryptocurrency price (use .CRYPTO suffix)
+begin
+  btc_price = coin_gecko_adapter.get_stock_price('BTC.CRYPTO')
+  puts "Bitcoin price: $#{btc_price}"
+  
+  eth_price = coin_gecko_adapter.get_stock_price('ETH.CRYPTO')
+  puts "Ethereum price: $#{eth_price}"
+rescue Stonk::Adapter::StockNotFound
+  puts "Cryptocurrency not found"
+rescue Stonk::Adapter::ServerError => e
+  puts "Server error: #{e.message}"
+end
+```
+
 ### Advanced Usage with Fallback Strategy
 
 ```ruby
@@ -112,6 +142,7 @@ require 'stonk'
 # Create adapters in order of preference
 cache_adapter = Stonk::Adapter::FileCacheAdapter.new('/tmp/stock_cache.json')
 alpha_adapter = Stonk::Adapter::AlphaVantageAdapter.new(ENV['ALPHA_VANTAGE_API_KEY'])
+coin_gecko_adapter = Stonk::Adapter::CoinGeckoAdapter.new
 alpha_adapter_with_retry = Stonk::Adapter::AlphaVantageAdapter.new(
   ENV['ALPHA_VANTAGE_API_KEY'],
   retry_on_rate_limit: true
@@ -120,8 +151,9 @@ alpha_adapter_with_retry = Stonk::Adapter::AlphaVantageAdapter.new(
 # Service will try lookup adapters in order until one succeeds, and cache results
 service = Stonk::Service.new(
   lookup_adapters: [
-    cache_adapter,           # Try looknig up in the cache first
-    alpha_adapter            # Then Alpha Vantage
+    cache_adapter,           # Try looking up in the cache first
+    alpha_adapter,           # Then Alpha Vantage for stocks
+    coin_gecko_adapter       # Then CoinGecko for cryptocurrencies
     alpha_adapter_with_retry # Then back to Alpha Vantage with a retry.
   ],
   cache_adapter:             # Cache successful results
@@ -130,6 +162,10 @@ service = Stonk::Service.new(
 # Get stock price (will try each lookup adapter until one returns a price, then cache the result)
 price = service.get_stock_price('AAPL')
 puts "Apple stock price: $#{price}" if price
+
+# Get cryptocurrency price (will use CoinGecko adapter)
+crypto_price = service.get_stock_price('BTC.CRYPTO')
+puts "Bitcoin price: $#{crypto_price}" if crypto_price
 ```
 
 ### Working with Money Objects
@@ -139,8 +175,8 @@ Stock prices are returned as `Stonk::Money` objects, which are based on `BigDeci
 ```ruby
 require 'stonk'
 
-yahoo_adapter = Stonk::Adapter::YahooFinanceAdapter.new
-price = yahoo_adapter.get_stock_price('AAPL')
+alpha_adapter = Stonk::Adapter::AlphaVantageAdapter.new(ENV['ALPHA_VANTAGE_API_KEY'])
+price = alpha_adapter.get_stock_price('AAPL')
 
 # Money objects support arithmetic operations
 puts "Price: $#{price}"
@@ -159,7 +195,7 @@ require 'stonk'
 
 service = Stonk::Service.new(
   lookup_adapters: [
-    Stonk::Adapter::YahooFinanceAdapter.new
+    Stonk::Adapter::AlphaVantageAdapter.new(ENV['ALPHA_VANTAGE_API_KEY'])
   ]
 )
 
