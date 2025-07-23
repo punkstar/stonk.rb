@@ -23,4 +23,5 @@ group :test do
   gem "webmock", "~> 3.25"
   gem "timecop", "~> 0.9.10"
   gem "mocha", "~> 2.7"
+  gem "simplecov", "~> 0.22.0"
 end
