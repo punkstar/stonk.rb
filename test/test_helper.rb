@@ -15,6 +15,10 @@ VCR.configure do |config|
   config.cassette_library_dir = "test/fixtures/vcr_cassettes"
   config.hook_into(:webmock)
 
+  config.default_cassette_options = {
+    re_record_interval: 60 * 60 * 24,
+  }
+
   config.filter_sensitive_data("<ALPHA_VANTAGE_TEST_API_KEY>") { ENV["ALPHA_VANTAGE_TEST_API_KEY"] }
 
   config.before_record(:alpha_vantage) do

@@ -15,7 +15,7 @@ module Stonk
 
           assert_kind_of(Stonk::Money, response)
           assert_predicate(response, :positive?)
-          assert_in_delta(213.55, response.to_f, 0.004)
+          assert_equal(214.4, response.to_f)
         end
       end
 

@@ -24,7 +24,7 @@ module Stonk
 
     def test_get_stock_price
       VCR.use_cassette("alpha_vantage/stock_aapl", tag: :alpha_vantage) do
-        assert_in_delta(213.55, @service.get_stock_price("AAPL").to_f, 0.004)
+        assert_equal(214.4, @service.get_stock_price("AAPL").to_f)
       end
     end
 

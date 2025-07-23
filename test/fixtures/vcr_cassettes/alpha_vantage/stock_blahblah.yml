@@ -25,7 +25,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 06 Jul 2025 09:38:19 GMT
+      - Wed, 23 Jul 2025 19:53:39 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,23 +35,23 @@ http_interactions:
       Vary:
       - Cookie, Origin
       Report-To:
-      - '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1751794699&sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&s=15pfGLT0xA5%2B7Gem4%2FCrh1JBsQcN7QaqvY%2FCLkBktHw%3D"}]}'
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=JNg7SZLdL1NTOu9GHdrNVrIMm0OI9wMR%2FaMAX73mRjU%3D\u0026sid=1b10b0ff-8a76-4548-befa-353fc6c6c045\u0026ts=1753300419"}],"max_age":3600}'
       Cf-Ray:
-      - 95ae20e4bdeb56d2-DUB
+      - 963db9a2f8d086d1-DUB
       X-Content-Type-Options:
       - nosniff
       Cross-Origin-Opener-Policy:
       - same-origin
       Nel:
-      - '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}'
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
       Referrer-Policy:
       - same-origin
       Via:
-      - 1.1 vegur
+      - 2.0 heroku-router
       Cf-Cache-Status:
       - DYNAMIC
       Reporting-Endpoints:
-      - heroku-nel=https://nel.heroku.com/reports?ts=1751794699&sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&s=15pfGLT0xA5%2B7Gem4%2FCrh1JBsQcN7QaqvY%2FCLkBktHw%3D
+      - heroku-nel="https://nel.heroku.com/reports?s=JNg7SZLdL1NTOu9GHdrNVrIMm0OI9wMR%2FaMAX73mRjU%3D&sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&ts=1753300419"
       X-Frame-Options:
       - DENY
       Allow:
@@ -59,15 +59,15 @@ http_interactions:
       X-Ratelimit-Requests-Limit:
       - '500'
       X-Ratelimit-Requests-Remaining:
-      - '431'
+      - '465'
       X-Ratelimit-Requests-Reset:
-      - '567'
+      - '50047'
       X-Ratelimit-Rapid-Free-Plans-Hard-Limit-Limit:
       - '500000'
       X-Ratelimit-Rapid-Free-Plans-Hard-Limit-Remaining:
-      - '499931'
+      - '499799'
       X-Ratelimit-Rapid-Free-Plans-Hard-Limit-Reset:
-      - '2592567'
+      - '1086847'
       Server:
       - RapidAPI-1.2.8
       X-Rapidapi-Version:
@@ -75,12 +75,12 @@ http_interactions:
       X-Rapidapi-Region:
       - AWS - eu-west-1
       X-Rapidapi-Request-Id:
-      - d3890c725dc1f4366c7c1fdaf6ca85b4ccc2be0eabe1d9652edd0b90aa9a585c
+      - 8c8ac2fbb438a7210b188de192c7242af0f759b8f6d8ccad08617be6a87e5952
     body:
       encoding: ASCII-8BIT
       string: |-
         {
             "Global Quote": {}
         }
-  recorded_at: Sun, 06 Jul 2025 09:38:19 GMT
+  recorded_at: Wed, 23 Jul 2025 19:53:39 GMT
 recorded_with: VCR 6.3.1
