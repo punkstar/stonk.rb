@@ -1,0 +1,88 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.coingecko.com/api/v3/coins/markets?symbols=BTC&vs_currency=USD
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      User-Agent:
+      - Ruby
+      Host:
+      - api.coingecko.com
+      X-Cg-Demo-Api-Key:
+      - "<COIN_GECKO_TEST_API_KEY>"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 23 Jul 2025 20:08:58 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - cloudflare
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Total:
+      - '1'
+      Per-Page:
+      - '100'
+      Cache-Control:
+      - max-age=30, public, must-revalidate, s-maxage=60
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - POST, PUT, DELETE, GET, OPTIONS
+      Access-Control-Request-Method:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept, Authorization
+      Access-Control-Expose-Headers:
+      - link, per-page, total
+      Vary:
+      - Accept-Encoding, Origin
+      Etag:
+      - W/"e431170b6684b68ecee6adbeabf18b51"
+      X-Request-Id:
+      - a549ed04-b446-48cd-b88c-8627161a16c1
+      X-Runtime:
+      - '0.037982'
+      Alternate-Protocol:
+      - 443:npn-spdy/2
+      Content-Security-Policy-Report-Only:
+      - script-src https://accounts.google.com/gsi/client; frame-src https://accounts.google.com/gsi/;
+        connect-src https://accounts.google.com/gsi/;
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubdomains
+      Cf-Cache-Status:
+      - MISS
+      Cf-Ray:
+      - 963dd013f841b86a-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '[{"id":"bitcoin","symbol":"btc","name":"Bitcoin","image":"https://coin-images.coingecko.com/coins/images/1/large/bitcoin.png?1696501400","current_price":118395,"market_cap":2355595821733,"market_cap_rank":1,"fully_diluted_valuation":2355595821733,"total_volume":44428553803,"high_24h":120222,"low_24h":117583,"price_change_24h":-1080.4118480612815,"price_change_percentage_24h":-0.9043,"market_cap_change_24h":-23868938845.194824,"market_cap_change_percentage_24h":-1.00312,"circulating_supply":19896434.0,"total_supply":19896434.0,"max_supply":21000000.0,"ath":122838,"ath_change_percentage":-3.59855,"ath_date":"2025-07-14T07:56:01.937Z","atl":67.81,"atl_change_percentage":174534.04908,"atl_date":"2013-07-06T00:00:00.000Z","roi":null,"last_updated":"2025-07-23T20:08:54.942Z"}]'
+  recorded_at: Wed, 23 Jul 2025 20:08:58 GMT
+recorded_with: VCR 6.3.1

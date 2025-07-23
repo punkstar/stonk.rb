@@ -11,7 +11,7 @@ module Stonk
     class ServerError < AdapterError; end
 
     autoload :AlphaVantageAdapter, "stonk/adapter/alpha_vantage_adapter"
+    autoload :CoinGeckoAdapter, "stonk/adapter/coin_gecko_adapter"
     autoload :FileCacheAdapter, "stonk/adapter/file_cache_adapter"
-    autoload :YahooFinanceAdapter, "stonk/adapter/yahoo_finance_adapter"
   end
 end

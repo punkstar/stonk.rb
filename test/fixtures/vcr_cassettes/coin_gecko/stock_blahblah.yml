@@ -1,0 +1,88 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.coingecko.com/api/v3/coins/markets?symbols=BLAHBLAH&vs_currency=USD
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      User-Agent:
+      - Ruby
+      Host:
+      - api.coingecko.com
+      X-Cg-Demo-Api-Key:
+      - "<COIN_GECKO_TEST_API_KEY>"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 23 Jul 2025 20:10:56 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - cloudflare
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Total:
+      - '0'
+      Per-Page:
+      - '100'
+      Cache-Control:
+      - max-age=30, public, must-revalidate, s-maxage=60
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - POST, PUT, DELETE, GET, OPTIONS
+      Access-Control-Request-Method:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept, Authorization
+      Access-Control-Expose-Headers:
+      - link, per-page, total
+      Vary:
+      - Accept-Encoding, Origin
+      Etag:
+      - W/"b1748d8d5c2d883b258370917095df94"
+      X-Request-Id:
+      - 70401922-6ac2-482e-b096-e678504f70ab
+      X-Runtime:
+      - '0.017871'
+      Alternate-Protocol:
+      - 443:npn-spdy/2
+      Content-Security-Policy-Report-Only:
+      - script-src https://accounts.google.com/gsi/client; frame-src https://accounts.google.com/gsi/;
+        connect-src https://accounts.google.com/gsi/;
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubdomains
+      Cf-Cache-Status:
+      - MISS
+      Cf-Ray:
+      - 963dd2f89dc64170-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: "[]"
+  recorded_at: Wed, 23 Jul 2025 20:10:56 GMT
+recorded_with: VCR 6.3.1

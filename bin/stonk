@@ -15,7 +15,9 @@ def setup_service(use_cache:)
     retry_on_rate_limit: true,
   )
 
-  lookup_adapters = [alpha_adapter, alpha_adapter_with_retry]
+  coin_gecko_adapter = Stonk::Adapter::CoinGeckoAdapter.new(ENV["COIN_GECKO_API_KEY"])
+
+  lookup_adapters = [alpha_adapter, coin_gecko_adapter, alpha_adapter_with_retry]
 
   lookup_adapters.unshift(cache_adapter) if use_cache
 
